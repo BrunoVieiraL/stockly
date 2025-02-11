@@ -20,9 +20,7 @@ class DashboardViewModel extends ChangeNotifier {
   Dashboard? get dashboard => _dashboard;
   List<Sale>? _mostSalesProducts;
   List<Sale>? get mostSalesProducts => _mostSalesProducts;
-  List<DataChart> _revenueChart = [
-    DataChart(x: DateTime(2025, 1, 1), y: 0),
-  ];
+  List<DataChart>? _revenueChart;
   List<DataChart>? get revenueChart => _revenueChart;
 
   late Command0 load;
