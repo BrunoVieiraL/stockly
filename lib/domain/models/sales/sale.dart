@@ -4,7 +4,6 @@ class Sale {
   String name;
   double unitPrice;
   int quantitySold;
-  double saleTotal;
   DateTime createdAt;
   DateTime updatedAt;
   int stock;
@@ -14,7 +13,6 @@ class Sale {
     required this.name,
     required this.unitPrice,
     required this.quantitySold,
-    required this.saleTotal,
     required this.createdAt,
     required this.updatedAt,
     required this.stock,

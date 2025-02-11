@@ -17,7 +17,6 @@ class DashboardRespositoryDev extends DashboardRepository {
           createdAt: DateTime.now(),
           updatedAt: DateTime.now(),
           quantitySold: 5,
-          saleTotal: 5 * 40,
         ),
         Sale(
           id: 2,
@@ -27,7 +26,6 @@ class DashboardRespositoryDev extends DashboardRepository {
           createdAt: DateTime.now(),
           updatedAt: DateTime.now(),
           quantitySold: 10,
-          saleTotal: 10 * 50,
         ),
         Sale(
           id: 3,
@@ -37,7 +35,6 @@ class DashboardRespositoryDev extends DashboardRepository {
           createdAt: DateTime.now(),
           updatedAt: DateTime.now(),
           quantitySold: 5,
-          saleTotal: 5 * 60,
         ),
       ],
     );

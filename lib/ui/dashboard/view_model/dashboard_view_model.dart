@@ -50,7 +50,9 @@ class DashboardViewModel extends ChangeNotifier {
           _log.fine('Most Sale Products obtained');
         case Error<List<Sale>>():
           _log.warning(
-              'Failed to obtain Most Sale Products', salesResult.error);
+            'Failed to obtain Most Sale Products',
+            salesResult.error,
+          );
           return salesResult;
       }
 
@@ -60,7 +62,10 @@ class DashboardViewModel extends ChangeNotifier {
           _revenueChart = chartResult.value;
           _log.fine('Chart Data Obtained');
         case Error<List<DataChart>>():
-          _log.warning('Failed to obtain Chart Data', chartResult.error);
+          _log.warning(
+            'Failed to obtain Chart Data',
+            chartResult.error,
+          );
           return chartResult;
       }
 
