@@ -17,6 +17,11 @@ abstract class AppTheme {
     ),
     iconTheme: IconThemeData(color: AppColors.green1),
     cardColor: Colors.white,
+    scrollbarTheme: ScrollbarThemeData(
+      thumbColor: WidgetStatePropertyAll(
+        Color(0xFF636363),
+      ),
+    ),
   );
 
   static ThemeData darkTheme = ThemeData(

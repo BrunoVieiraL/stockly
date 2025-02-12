@@ -39,15 +39,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
               onPressed: widget.viewModel.load.execute,
             );
           }
-          if (widget.viewModel.revenueChart != null) {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              setState(() {});
-            });
-          }
           return child!;
         },
         child: Column(
-          spacing: 20,
+          spacing: 15,
           children: [
             DashboardTop(viewModel: widget.viewModel),
             DashboardMid(viewModel: widget.viewModel),

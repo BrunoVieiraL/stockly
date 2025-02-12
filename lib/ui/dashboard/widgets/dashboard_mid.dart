@@ -15,7 +15,7 @@ class _DashboardMidState extends State<DashboardMid> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.23,
+      height: MediaQuery.of(context).size.height * 0.25,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -39,63 +39,71 @@ class _DashboardMidState extends State<DashboardMid> {
           ),
           SizedBox(height: 10),
           Expanded(
-            child: ListView.separated(
-              itemCount: widget.viewModel.mostSalesProducts!.length,
-              separatorBuilder: (context, index) => Divider(
-                color: AppColors.white1,
-                thickness: 5,
-              ),
-              itemBuilder: (context, index) {
-                var sale = widget.viewModel.mostSalesProducts?[index];
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                        color:
-                            sale?.stock != 0 ? Colors.black : AppColors.pink1,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Text(
-                        sale?.stock != 0 ? 'Em Estoque' : 'Esgotado',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                        ),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Scrollbar(
+              interactive: true,
+              thumbVisibility: true,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 7),
+                child: ListView.separated(
+                  itemCount: widget.viewModel.mostSalesProducts!.length,
+                  separatorBuilder: (context, index) => Divider(
+                    color: AppColors.white1,
+                    thickness: 5,
+                  ),
+                  itemBuilder: (context, index) {
+                    var sale = widget.viewModel.mostSalesProducts?[index];
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          '${sale?.name}',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16,
+                        Container(
+                          padding: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            color: sale?.stock != 0
+                                ? Colors.black
+                                : AppColors.pink1,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text(
+                            sale?.stock != 0 ? 'Em Estoque' : 'Esgotado',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                            ),
                           ),
                         ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '${sale?.name}',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16,
+                              ),
+                            ),
+                            Text(
+                              '${sale?.quantitySold} vendas',
+                              textAlign: TextAlign.right,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ],
+                        ),
                         Text(
-                          '${sale?.quantitySold} vendas',
-                          textAlign: TextAlign.right,
+                          'R\$ ${sale?.unitPrice}',
                           style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 15,
+                            fontSize: 13,
+                            color: AppColors.grey3,
                           ),
                         ),
                       ],
-                    ),
-                    Text(
-                      'R\$ ${sale?.unitPrice}',
-                      style: TextStyle(
-                        fontSize: 13,
-                        color: AppColors.grey3,
-                      ),
-                    ),
-                  ],
-                );
-              },
+                    );
+                  },
+                ),
+              ),
             ),
           ),
         ],

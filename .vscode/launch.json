@@ -7,7 +7,7 @@
 
 
         {
-            "name": "stockly",
+            "name": "stockly (debug mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
