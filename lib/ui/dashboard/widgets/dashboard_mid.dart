@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:stockly/ui/core/themes/colors.dart';
+import 'package:stockly/ui/core/widgets/stock_status_component.dart';
 import 'package:stockly/ui/dashboard/view_model/dashboard_view_model.dart';
 
 class DashboardMid extends StatefulWidget {
@@ -55,22 +57,7 @@ class _DashboardMidState extends State<DashboardMid> {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          padding: EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                            color: sale?.stock != 0
-                                ? Colors.black
-                                : AppColors.pink1,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Text(
-                            sale?.stock != 0 ? 'Em Estoque' : 'Esgotado',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                            ),
-                          ),
-                        ),
+                        StockStatusComponent(stock: sale?.stock ?? 0),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -93,7 +80,11 @@ class _DashboardMidState extends State<DashboardMid> {
                           ],
                         ),
                         Text(
-                          'R\$ ${sale?.unitPrice}',
+                          NumberFormat.simpleCurrency(
+                            locale: 'pt_BR',
+                            name: 'BRL',
+                            decimalDigits: 2,
+                          ).format(sale?.unitPrice ?? 0),
                           style: TextStyle(
                             fontSize: 13,
                             color: AppColors.grey3,

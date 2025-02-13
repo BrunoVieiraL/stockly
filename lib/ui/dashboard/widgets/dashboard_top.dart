@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:stockly/ui/core/themes/colors.dart';
 import 'package:stockly/ui/dashboard/view_model/dashboard_view_model.dart';
 
@@ -20,13 +21,20 @@ class _DashboardTopState extends State<DashboardTop> {
           children: [
             DashboardCard(
               text: 'Receita Total',
-              value: 'R\$ ${widget.viewModel.dashboard!.totalRecipe}',
+              value: NumberFormat.simpleCurrency(
+                locale: 'pt_BR',
+                name: 'BRL',
+                decimalDigits: 2,
+              ).format(widget.viewModel.dashboard!.totalRecipe),
               icon: Icons.attach_money,
             ),
             DashboardCard(
               text: 'Receita Hoje',
-              value:
-                  'R\$ ${widget.viewModel.dashboard!.todayRecipe.toString()}',
+              value: NumberFormat.simpleCurrency(
+                locale: 'pt_BR',
+                name: 'BRL',
+                decimalDigits: 2,
+              ).format(widget.viewModel.dashboard!.todayRecipe),
               icon: Icons.attach_money,
             ),
           ],
