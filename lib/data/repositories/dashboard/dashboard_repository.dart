@@ -1,6 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:flutter/material.dart';
-
 import 'package:stockly/domain/models/dashboard/dashboard.dart';
 import 'package:stockly/domain/models/sales/sale.dart';
 import 'package:stockly/utils/result.dart';
@@ -18,7 +15,7 @@ class DataChart {
   String toString() => 'DataChart(x: $x, y: $y)';
 }
 
-abstract class DashboardRepository extends ChangeNotifier {
+abstract class DashboardRepository {
   Future<Result<Dashboard>> getHeaderData();
 
   Future<Result<List<Sale>>> getMostSaleProducts();
