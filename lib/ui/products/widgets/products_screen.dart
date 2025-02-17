@@ -23,7 +23,56 @@ class _ProductsScreenState extends State<ProductsScreen> {
     return SafeArea(
       minimum: EdgeInsets.symmetric(horizontal: 5),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Gestão de produtos',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.blue1,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                onPressed: () async {
+                  await showDialog(
+                    context: context,
+                    builder: (context) => ProductDialog(
+                      onPressed: (name, price, stock) async =>
+                          await widget.viewModel.addProduct(
+                        Product(
+                          name: name,
+                          price: price,
+                          stock: stock,
+                          createdAt: DateTime.now(),
+                          updatedAt: DateTime.now(),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+                label: Text(
+                  'Novo produto',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                icon: Icon(
+                  Icons.add,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             spacing: 30,

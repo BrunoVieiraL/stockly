@@ -25,7 +25,7 @@ class Product {
     return Product(
       id: map['id'] != null ? map['id'] as String : null,
       name: map['name'] as String,
-      price: double.tryParse(map['price']) ?? 0,
+      price: double.tryParse(map['price'].toString()) ?? 0.0,
       stock: map['stock'] as int,
       createdAt: DateTime.parse(map['createdAt']),
       updatedAt: DateTime.parse(map['updatedAt']),
