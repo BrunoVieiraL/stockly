@@ -42,10 +42,7 @@ class ApiClient {
 
   static Future<Result<void>> deleteProduct(String id) async {
     try {
-      Response response = await dio.delete(
-        '$url$productEndpoint',
-        data: {"id": id},
-      );
+      Response response = await dio.delete('$url$productEndpoint/$id');
       response.statusCode;
       return Result.ok(null);
     } on DioException catch (e) {
