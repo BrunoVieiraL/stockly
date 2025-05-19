@@ -7,8 +7,8 @@ import 'package:stockly/domain/models/sales/sale.dart';
 import 'package:stockly/utils/command.dart';
 import 'package:stockly/utils/result.dart';
 
-class DashboardViewModel extends ChangeNotifier {
-  DashboardViewModel({required DashboardRepository dashboardRepository})
+class DashboardViewmodel extends ChangeNotifier {
+  DashboardViewmodel({required DashboardRepository dashboardRepository})
       : _dashboardRepository = dashboardRepository {
     load = Command0(_load)..execute();
   }

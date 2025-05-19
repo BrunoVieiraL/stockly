@@ -14,7 +14,7 @@ class StockStatusComponent extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(5),
       decoration: BoxDecoration(
-        color: stock != 0 ? Colors.black : AppColors.pink1,
+        color: stock != 0 ? AppColors.black : AppColors.red1,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Text(

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:stockly/ui/core/themes/colors.dart';
 import 'package:stockly/ui/core/widgets/stock_status_component.dart';
 import 'package:stockly/ui/dashboard/view_model/dashboard_view_model.dart';
 
 class DashboardMid extends StatefulWidget {
   const DashboardMid({super.key, required this.viewModel});
 
-  final DashboardViewModel viewModel;
+  final DashboardViewmodel viewModel;
 
   @override
   State<DashboardMid> createState() => _DashboardMidState();
@@ -16,10 +15,11 @@ class DashboardMid extends StatefulWidget {
 class _DashboardMidState extends State<DashboardMid> {
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return Container(
       height: MediaQuery.of(context).size.height * 0.25,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.cardColor,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
@@ -27,17 +27,11 @@ class _DashboardMidState extends State<DashboardMid> {
         children: [
           Text(
             'Produtos mais vendidos',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 17,
-            ),
+            style: theme.textTheme.titleLarge,
           ),
           Text(
             'Todo o tempo',
-            style: TextStyle(
-              fontSize: 13,
-              color: AppColors.grey3,
-            ),
+            style: theme.textTheme.labelMedium,
           ),
           SizedBox(height: 10),
           Expanded(
@@ -49,7 +43,7 @@ class _DashboardMidState extends State<DashboardMid> {
                 child: ListView.separated(
                   itemCount: widget.viewModel.mostSalesProducts!.length,
                   separatorBuilder: (context, index) => Divider(
-                    color: AppColors.white1,
+                    color: theme.scaffoldBackgroundColor,
                     thickness: 5,
                   ),
                   itemBuilder: (context, index) {
@@ -64,18 +58,12 @@ class _DashboardMidState extends State<DashboardMid> {
                             Text(
                               '${sale?.name}',
                               textAlign: TextAlign.left,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                              ),
+                              style: theme.textTheme.labelLarge,
                             ),
                             Text(
                               '${sale?.quantitySold} vendas',
                               textAlign: TextAlign.right,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 15,
-                              ),
+                              style: theme.textTheme.labelLarge,
                             ),
                           ],
                         ),
@@ -85,10 +73,7 @@ class _DashboardMidState extends State<DashboardMid> {
                             name: 'BRL',
                             decimalDigits: 2,
                           ).format(sale?.unitPrice ?? 0),
-                          style: TextStyle(
-                            fontSize: 13,
-                            color: AppColors.grey3,
-                          ),
+                          style: theme.textTheme.labelMedium,
                         ),
                       ],
                     );

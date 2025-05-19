@@ -11,7 +11,7 @@ class DashboardScreen extends StatefulWidget {
     required this.viewModel,
   });
 
-  final DashboardViewModel viewModel;
+  final DashboardViewmodel viewModel;
 
   @override
   State<DashboardScreen> createState() => _DashboardScreenState();

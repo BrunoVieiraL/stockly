@@ -213,7 +213,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         label: Text(widget.labelText),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         border: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.black2),
+          borderSide: BorderSide(color: AppColors.blue1),
           borderRadius: BorderRadius.circular(10),
         ),
         constraints: BoxConstraints(

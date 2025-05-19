@@ -3,22 +3,27 @@ import 'package:flutter/material.dart';
 abstract final class AppColors {
   static const white1 = Color(0xFFF3F4F6);
   static const white2 = Color(0xFFF1F5F9);
-  static const grey1 = Color(0xFFEDEFF1);
-  static const grey2 = Color(0xFFF4F7FA);
-  static const grey3 = Color(0xFF7C899D);
-  static const black1 = Color(0xFF272E3F);
-  static const black2 = Color(0xFF020817);
+  static const white = Color(0xFFFFFFFF);
   static const blue1 = Color(0xFF0F172A);
+  static const blue2 = Color(0xFF060A0E);
+  static const red1 = Color(0xFFEF4444);
   static const green1 = Color(0xFF10B981);
   static const green2 = Color(0xFFE7F8F2);
-  static const red1 = Color(0xFFE74C3C);
-  static const pink1 = Color(0xFFF26969);
+  static const green3 = Color(0xFF47EBB4);
+  static const green4 = Color(0xFF113227);
+  static const black = Color(0xFF000000);
+  static const black1 = Color(0xFF090A0C);
+  static const grey1 = Color.fromARGB(255, 192, 191, 190);
 
   static const lightColorScheme = ColorScheme.light(
+    surface: white1,
     primary: black1,
-    surface: grey1,
-    secondary: grey2,
+    secondary: black1,
   );
 
-  static const darkColorScheme = ColorScheme.dark();
+  static const darkColorScheme = ColorScheme.dark(
+    surface: black1,
+    primary: white1,
+    secondary: white1,
+  );
 }

@@ -65,9 +65,7 @@ class ProdutcsViewmodel extends ChangeNotifier {
       }
       return productsResult;
     } finally {
-      products;
       notifyListeners();
-      products;
     }
   }
 }

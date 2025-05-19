@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:stockly/ui/core/themes/colors.dart';
-import 'package:stockly/ui/dashboard/view_model/dashboard_view_model.dart';
+import '/ui/dashboard/view_model/dashboard_view_model.dart';
 
 class DashboardTop extends StatefulWidget {
   const DashboardTop({super.key, required this.viewModel});
 
-  final DashboardViewModel viewModel;
+  final DashboardViewmodel viewModel;
   @override
   State<DashboardTop> createState() => _DashboardTopState();
 }
@@ -79,11 +78,13 @@ class DashboardCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
+
     return Expanded(
       child: Container(
         height: MediaQuery.of(context).size.height * 0.125,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: theme.cardColor,
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.circular(10),
         ),
@@ -98,17 +99,20 @@ class DashboardCard extends StatelessWidget {
               ),
               child: Container(
                 decoration: BoxDecoration(
-                  color: AppColors.green2,
+                  color: theme.canvasColor,
                   borderRadius: BorderRadius.circular(5),
                 ),
-                child: Icon(icon),
+                child: Icon(
+                  icon,
+                  color: theme.iconTheme.color,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 10),
               child: Text(
                 text,
-                style: Theme.of(context).textTheme.bodySmall,
+                style: theme.textTheme.labelMedium,
               ),
             ),
             Padding(
@@ -118,7 +122,7 @@ class DashboardCard extends StatelessWidget {
               ),
               child: Text(
                 value,
-                style: Theme.of(context).textTheme.headlineSmall,
+                style: theme.textTheme.labelLarge,
               ),
             ),
           ],
